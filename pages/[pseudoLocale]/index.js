@@ -77,7 +77,6 @@ export async function getStaticProps ({ params: { pseudoLocale = 'en' }, locale 
 }
 
 export async function getStaticPaths ({ locales }) {
-  // const paths = (await getPostsList()).map(({ slug }) => ({ params: { slug } }))
   return {
     paths: [
       { params: { pseudoLocale: 'en' }, locale: 'site1' }
