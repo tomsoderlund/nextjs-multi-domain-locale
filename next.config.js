@@ -1,7 +1,7 @@
 // Next.js’ i18n `locale` is used to determine the site:
 const sites = {
-  site1: { title: 'The 1st Site', description: 'This is the description for the first site.' },
-  site2: { title: 'The 2nd Site', description: 'This is the description for the second site.' }
+  site1: { title: 'The 1st Site', description: 'This is the description for the first site.', domain: 'multi-domain-locale1.vercel.app' },
+  site2: { title: 'The 2nd Site', description: 'This is the description for the second site.', domain: 'multi-domain-locale2.vercel.app' }
 }
 const siteKeys = Object.keys(sites)
 
@@ -19,16 +19,12 @@ module.exports = {
   i18n: {
     locales: siteKeys,
     defaultLocale: siteKeys[0],
-    domains: [
+    domains: siteKeys.map(siteKey => (
       {
-        domain: 'multi-domain-locale1.vercel.app',
-        defaultLocale: 'site1'
-      },
-      {
-        domain: 'multi-domain-locale2.vercel.app',
-        defaultLocale: 'site2'
+        domain: sites[siteKey].domain,
+        defaultLocale: siteKey
       }
-    ]
+    ))
   },
 
   // Redirect / to default pseudoLocale
