@@ -8,7 +8,7 @@ This is an example of hosting **multiple domains on the same Next.js site** (whi
 
 ## Concept
 
-- Next.js’ i18n `locales` is used for different _sites_.
+- Next.js’ i18n `locale` is used to determine the _site_.
 - Selecting a _language_ is instead handled via a `pseudoLocale` prop (pages in a `/[pseudoLocale]` folder).
 - A _redirect_ from `/` to `/en`.
 
