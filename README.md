@@ -1,6 +1,6 @@
 # nextjs-multi-domain-locale
 
-This is an example of hosting **multiple domains on the same Next.js site** (while maintaining [static site generation (SSG)](https://nextjs.org/docs/basic-features/data-fetching#getstaticprops-static-generation) and multiple languages), using [Next.js’ i18n system](https://nextjs.org/docs/advanced-features/i18n-routing).
+This is an example of hosting **multiple domains on the same Next.js site** (while maintaining **multiple languages** and [static site generation (SSG)](https://nextjs.org/docs/basic-features/data-fetching#getstaticprops-static-generation)), using [Next.js’ i18n system](https://nextjs.org/docs/advanced-features/i18n-routing).
 
 ## Demo
 
