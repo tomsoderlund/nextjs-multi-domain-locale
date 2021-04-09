@@ -10,9 +10,10 @@ module.exports = {
     // Will only be available on the server side - restart needed to change
   },
 
+  // We "hijack" Next.js’ i18n system to use for sites
   i18n: {
-    locales: ['en', 'se', 'site1', 'site2'],
-    defaultLocale: 'en',
+    locales: ['site1', 'site2'],
+    defaultLocale: 'site1',
     domains: [
       {
         domain: 'multi-domain-locale1.vercel.app',
@@ -24,6 +25,17 @@ module.exports = {
       }
     ]
   },
+
+  // Redirect / to pseudoLocale: en
+  redirects: () => (
+    [
+      {
+        source: '/',
+        destination: '/en',
+        permanent: true
+      }
+    ]
+  ),
 
   future: {
     webpack5: true

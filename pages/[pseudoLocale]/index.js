@@ -3,8 +3,8 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import getConfig from 'next/config'
 
-import styles from '../styles/Home.module.css'
-import packageJson from '../package.json'
+import styles from '../../styles/Home.module.css'
+import packageJson from '../../package.json'
 
 export default function Home () {
   const { locale, locales, defaultLocale } = useRouter()
