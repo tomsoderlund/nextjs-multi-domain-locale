@@ -4,13 +4,12 @@ module.exports = {
     sites: {
       site1: { title: 'The 1st Site', description: 'This is the first site.' },
       site2: { title: 'The 2nd Site', description: 'This is the second site.' }
-    }
-  },
-  serverRuntimeConfig: {
-    // Will only be available on the server side - restart needed to change
+    },
+    // Selecting a language is instead handled via a `pseudoLanguage` prop:
+    pseudoLocales: ['en', 'se']
   },
 
-  // We "hijack" Next.js’ i18n system to use for sites
+  // We "hijack" Next.js’ i18n system to use for different sites
   i18n: {
     locales: ['site1', 'site2'],
     defaultLocale: 'site1',

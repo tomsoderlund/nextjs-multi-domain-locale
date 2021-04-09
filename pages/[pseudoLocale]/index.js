@@ -6,11 +6,11 @@ import getConfig from 'next/config'
 import styles from '../../styles/Home.module.css'
 import packageJson from '../../package.json'
 
-export default function Home () {
-  const { locale, locales, defaultLocale } = useRouter()
-  const { publicRuntimeConfig: { sites } } = getConfig()
+export default function Home ({ pseudoLocale }) {
+  const { locales, locale, defaultLocale } = useRouter()
+  const { publicRuntimeConfig: { sites, pseudoLocales } } = getConfig()
 
-  const nextLocale = locales.find(otherLocale => otherLocale !== locale)
+  const nextLocale = pseudoLocales.find(otherLocale => otherLocale !== pseudoLocale)
   const nextSiteNr = locale === 'site2' ? 1 : 2
 
   return (
@@ -35,23 +35,21 @@ export default function Home () {
             <p>Go to Domain {nextSiteNr}</p>
           </a>
 
-          <Link href={`/site${nextSiteNr}`}>
-            <a className={styles.card}>
-              <h3>Site: site{nextSiteNr}</h3>
-              <p>Switch site locale to 'site{nextSiteNr}'</p>
-            </a>
-          </Link>
+          <div className={styles.card}>
+            <h3>Site: {locale}</h3>
+          </div>
 
           <Link href={`/${nextLocale}`}>
             <a className={styles.card}>
-              <h3>Locale: {nextLocale}</h3>
+              <h3>Locale (pseudoLocale): {nextLocale}</h3>
               <p>Switch locale to '{nextLocale}'</p>
             </a>
           </Link>
 
           <div className={styles.card}>
-            <h3>Locale (from useRouter)</h3>
-            <p>{JSON.stringify({ locale, locales, defaultLocale }, null, 2)}</p>
+            <h3>Props</h3>
+            <p>useRouter: {JSON.stringify({ locales, locale, defaultLocale }, null, 2)}</p>
+            <p>{JSON.stringify({ pseudoLocales, pseudoLocale }, null, 2)}</p>
           </div>
         </div>
       </main>
@@ -67,4 +65,23 @@ export default function Home () {
       </footer>
     </div>
   )
+}
+
+export async function getStaticProps ({ params: { pseudoLocale = 'en' }, locale = 'site1' }) {
+  return {
+    props: {
+      pseudoLocale
+    },
+    revalidate: 60 // Seconds. This refresh time could be longer depending on how often data changes.
+  }
+}
+
+export async function getStaticPaths ({ locales }) {
+  // const paths = (await getPostsList()).map(({ slug }) => ({ params: { slug } }))
+  return {
+    paths: [
+      { params: { pseudoLocale: 'en' }, locale: 'site1' }
+    ],
+    fallback: true // true -> build page if missing, false -> serve 404
+  }
 }
