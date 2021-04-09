@@ -16,7 +16,7 @@ export default function Home ({ pseudoLocale }) {
   const siteAndLocale = sites[locale] && sites[locale].locales[pseudoLocale]
 
   return (
-    <div className={styles.container}>
+    <div className={[styles.container, locale, pseudoLocale].join(' ')}>
       <Head>
         <title>Multi Domain using i18n</title>
         <meta name='description' content={packageJson.description} />
