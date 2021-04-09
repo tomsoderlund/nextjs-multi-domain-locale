@@ -22,7 +22,7 @@ export default function Home ({ pseudoLocale }) {
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>{sites[locale] ? sites[locale].title : `Site not found: '${locale}'`}</h1>
+        <h1 className={styles.title}>{sites[locale] ? sites[locale].title : `Site not found: '${locale}</strong>`}</h1>
         {sites[locale] && (
           <p className={styles.description}>{sites[locale].description}</p>
         )}
@@ -31,25 +31,23 @@ export default function Home ({ pseudoLocale }) {
 
         <div className={styles.grid}>
           <a href={`https://multi-domain-locale${nextSiteNr}.vercel.app`} className={styles.card}>
-            <h3>Domain {nextSiteNr}</h3>
-            <p>Go to Domain {nextSiteNr}</p>
+            <h3>Switch site (locale)</h3>
+            <p>Currently: <strong>{locale}</strong></p>
+            <p>Go to: site/domain {nextSiteNr}</p>
           </a>
-
-          <div className={styles.card}>
-            <h3>Site: {locale}</h3>
-          </div>
 
           <Link href={`/${nextLocale}`}>
             <a className={styles.card}>
-              <h3>Locale (pseudoLocale): {nextLocale}</h3>
-              <p>Switch locale to '{nextLocale}'</p>
+              <h3>Switch language (pseudoLocale)</h3>
+              <p>Currently: <strong>{nextLocale}</strong></p>
+              <p>Switch locale to: <strong>{nextLocale}</strong></p>
             </a>
           </Link>
 
           <div className={styles.card}>
             <h3>Props</h3>
-            <p>useRouter: {JSON.stringify({ locales, locale, defaultLocale }, null, 2)}</p>
-            <p>{JSON.stringify({ pseudoLocales, pseudoLocale }, null, 2)}</p>
+            <p>locale (useRouter): <code>{JSON.stringify({ locales, locale, defaultLocale }, null, 2)}</code></p>
+            <p>pseudoLocale: <code>{JSON.stringify({ pseudoLocales, pseudoLocale }, null, 2)}</code></p>
           </div>
         </div>
       </main>

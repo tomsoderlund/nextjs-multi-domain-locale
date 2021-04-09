@@ -2,8 +2,8 @@ module.exports = {
   publicRuntimeConfig: {
     // Will be available on both server and client - restart needed to change
     sites: {
-      site1: { title: 'The 1st Site', description: 'This is the first site.' },
-      site2: { title: 'The 2nd Site', description: 'This is the second site.' }
+      site1: { title: 'The 1st Site', description: 'This is the description for the first site.' },
+      site2: { title: 'The 2nd Site', description: 'This is the description for the second site.' }
     },
     // Selecting a language is instead handled via a `pseudoLanguage` prop:
     pseudoLocales: ['en', 'se']
