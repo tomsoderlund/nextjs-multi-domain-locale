@@ -3,13 +3,19 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -p 3301",
     "build": "next build",
-    "start": "next start"
+    "start": "next start -p 3301",
+    "deploy": "vercel --prod",
+    "lint": "standard",
+    "fix": "standard --fix"
   },
   "dependencies": {
     "next": "10.1.3",
     "react": "17.0.2",
     "react-dom": "17.0.2"
+  },
+  "devDependencies": {
+    "standard": "^16.0.3"
   }
 }
