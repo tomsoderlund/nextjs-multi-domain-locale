@@ -45,7 +45,7 @@ export default function Home () {
 
       <footer className={styles.footer}>
         <a
-          href='https://www.github.com'
+          href='https://github.com/tomsoderlund/nextjs-multi-domain-locale'
           target='_blank'
           rel='noopener noreferrer'
         >
