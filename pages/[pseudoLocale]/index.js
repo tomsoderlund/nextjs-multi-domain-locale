@@ -30,7 +30,7 @@ export default function Home ({ pseudoLocale }) {
         <p className={styles.description}>{packageJson.description}</p>
 
         <div className={styles.grid}>
-          <a href={`https://multi-domain-locale${nextSiteNr}.vercel.app`} className={styles.card}>
+          <a href={`https://multi-domain-locale${nextSiteNr}.vercel.app/${pseudoLocale}`} className={styles.card}>
             <h3>Switch site (locale)</h3>
             <p>Currently: <strong>{locale}</strong></p>
             <p>Go to: site/domain {nextSiteNr}</p>
@@ -39,7 +39,7 @@ export default function Home ({ pseudoLocale }) {
           <Link href={`/${nextLocale}`}>
             <a className={styles.card}>
               <h3>Switch language (pseudoLocale)</h3>
-              <p>Currently: <strong>{nextLocale}</strong></p>
+              <p>Currently: <strong>{pseudoLocale}</strong></p>
               <p>Switch locale to: <strong>{nextLocale}</strong></p>
             </a>
           </Link>
