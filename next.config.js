@@ -1,7 +1,19 @@
 // Next.js’ i18n `locale` is used to determine the site:
 const sites = {
-  site1: { title: 'The 1st Site', description: 'This is the description for the first site.', domain: 'multi-domain-locale1.vercel.app' },
-  site2: { title: 'The 2nd Site', description: 'This is the description for the second site.', domain: 'multi-domain-locale2.vercel.app' }
+  site1: {
+    locales: {
+      en: { title: 'The First Site', description: 'This is the description for the first site.' },
+      se: { title: 'Den första webbplatsen', description: 'Det här är beskrivningen för den första webbplatsen.' }
+    },
+    domain: 'multi-domain-locale1.vercel.app'
+  },
+  site2: {
+    locales: {
+      en: { title: 'The Second Site', description: 'This is the description for the second site.' },
+      se: { title: 'Den andra webbplatsen', description: 'Det här är beskrivningen för den andra webbplatsen.' }
+    },
+    domain: 'multi-domain-locale2.vercel.app'
+  }
 }
 const siteKeys = Object.keys(sites)
 

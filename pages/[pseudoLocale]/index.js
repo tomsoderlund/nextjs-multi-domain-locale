@@ -13,6 +13,8 @@ export default function Home ({ pseudoLocale }) {
   const nextLocale = pseudoLocales.find(otherLocale => otherLocale !== pseudoLocale)
   const nextSiteNr = locale === 'site2' ? 1 : 2
 
+  const siteAndLocale = sites[locale] && sites[locale].locales[pseudoLocale]
+
   return (
     <div className={styles.container}>
       <Head>
@@ -22,9 +24,9 @@ export default function Home ({ pseudoLocale }) {
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>{sites[locale] ? sites[locale].title : `Site not found: '${locale}</strong>`}</h1>
-        {sites[locale] && (
-          <p className={styles.description}>{sites[locale].description}</p>
+        <h1 className={styles.title}>{siteAndLocale ? siteAndLocale.title : `Site not found: '${locale}</strong>`}</h1>
+        {siteAndLocale && (
+          <p className={styles.description}>{siteAndLocale.description}</p>
         )}
 
         <p className={styles.description}>{packageJson.description}</p>
