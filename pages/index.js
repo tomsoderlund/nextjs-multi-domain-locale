@@ -9,6 +9,10 @@ import packageJson from '../package.json'
 export default function Home () {
   const { locale, locales, defaultLocale } = useRouter()
   const { publicRuntimeConfig: { sites } } = getConfig()
+
+  const nextLocale = locales.find(otherLocale => otherLocale !== locale)
+  const nextSiteNr = locale === 'site2' ? 1 : 2
+
   return (
     <div className={styles.container}>
       <Head>
@@ -31,23 +35,23 @@ export default function Home () {
             <p>{JSON.stringify({ locale, locales, defaultLocale }, null, 2)}</p>
           </div>
 
-          <Link href='/se'>
+          <Link href={`/${nextLocale}`}>
             <a className={styles.card}>
-              <h3>Locale: se</h3>
-              <p>Switch locale to 'se'</p>
+              <h3>Locale: {nextLocale}</h3>
+              <p>Switch locale to '{nextLocale}'</p>
             </a>
           </Link>
 
-          <Link href='/site2'>
+          <Link href={`/site${nextSiteNr}`}>
             <a className={styles.card}>
-              <h3>Locale: site2</h3>
-              <p>Switch locale to 'site2'</p>
+              <h3>Locale: site{nextSiteNr}</h3>
+              <p>Switch locale to 'site{nextSiteNr}'</p>
             </a>
           </Link>
 
-          <a href='https://multi-domain-locale2.vercel.app' className={styles.card}>
-            <h3>Domain 2</h3>
-            <p>Go to Domain 2</p>
+          <a href={`https://multi-domain-locale${nextSiteNr}.vercel.app`} className={styles.card}>
+            <h3>Domain {nextSiteNr}</h3>
+            <p>Go to Domain {nextSiteNr}</p>
           </a>
         </div>
       </main>
