@@ -31,14 +31,14 @@ export default function Home ({ pseudoLocale }) {
 
         <div className={styles.grid}>
           <a href={`https://multi-domain-locale${nextSiteNr}.vercel.app/${pseudoLocale}`} className={styles.card}>
-            <h3>Switch site (locale)</h3>
+            <h3>Switch site (<code>locale</code>)</h3>
             <p>Currently: <strong>{locale}</strong></p>
             <p>Go to: site/domain {nextSiteNr}</p>
           </a>
 
           <Link href={`/${nextLocale}`}>
             <a className={styles.card}>
-              <h3>Switch language (pseudoLocale)</h3>
+              <h3>Switch language (<code>pseudoLocale</code>)</h3>
               <p>Currently: <strong>{pseudoLocale}</strong></p>
               <p>Switch locale to: <strong>{nextLocale}</strong></p>
             </a>
