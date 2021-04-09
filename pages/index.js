@@ -30,10 +30,17 @@ export default function Home () {
         <p className={styles.description}>{packageJson.description}</p>
 
         <div className={styles.grid}>
-          <div className={styles.card}>
-            <h3>Locale (from useRouter)</h3>
-            <p>{JSON.stringify({ locale, locales, defaultLocale }, null, 2)}</p>
-          </div>
+          <a href={`https://multi-domain-locale${nextSiteNr}.vercel.app`} className={styles.card}>
+            <h3>Domain {nextSiteNr}</h3>
+            <p>Go to Domain {nextSiteNr}</p>
+          </a>
+
+          <Link href={`/site${nextSiteNr}`}>
+            <a className={styles.card}>
+              <h3>Site: site{nextSiteNr}</h3>
+              <p>Switch site locale to 'site{nextSiteNr}'</p>
+            </a>
+          </Link>
 
           <Link href={`/${nextLocale}`}>
             <a className={styles.card}>
@@ -42,17 +49,10 @@ export default function Home () {
             </a>
           </Link>
 
-          <Link href={`/site${nextSiteNr}`}>
-            <a className={styles.card}>
-              <h3>Locale: site{nextSiteNr}</h3>
-              <p>Switch locale to 'site{nextSiteNr}'</p>
-            </a>
-          </Link>
-
-          <a href={`https://multi-domain-locale${nextSiteNr}.vercel.app`} className={styles.card}>
-            <h3>Domain {nextSiteNr}</h3>
-            <p>Go to Domain {nextSiteNr}</p>
-          </a>
+          <div className={styles.card}>
+            <h3>Locale (from useRouter)</h3>
+            <p>{JSON.stringify({ locale, locales, defaultLocale }, null, 2)}</p>
+          </div>
         </div>
       </main>
 
