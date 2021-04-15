@@ -1,6 +1,6 @@
 {
   "name": "nextjs-multi-domain-locale",
-  "description": "Hosting multiple domains with SSG using Next.js’ i18n system",
+  "description": "Hosting multiple domains with SSG (getStaticProps) using Next.js’ i18n system",
   "version": "0.1.0",
   "author": "Tom Söderlund <tom@tomsoderlund.com>",
   "license": "ISC",

@@ -18,7 +18,7 @@ export default function Home ({ pseudoLocale }) {
   return (
     <div className={[styles.container, locale, pseudoLocale].join(' ')}>
       <Head>
-        <title>Multi Domain using i18n</title>
+        <title>Multi Domain SSG using i18n</title>
         <meta name='description' content={packageJson.description} />
         <link rel='icon' href='/favicon.ico' />
       </Head>
